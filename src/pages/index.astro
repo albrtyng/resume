@@ -2,12 +2,21 @@
 import Container from "@components/container.astro";
 import { Hero } from "@components/Hero/Hero";
 import { Navbar } from "@components/Navbar/Navbar";
+import { LogoGrid } from "@components/LogoGrid/LogoGrid";
 import Layout from "@layouts/Layout.astro";
+import contentful from "@assets/logos/contentful.svg";
+import github from "@assets/logos/github.svg";
+import graphql from "@assets/logos/graphql.svg";
+import jira from "@assets/logos/jira.svg";
+import nextjs from "@assets/logos/nextjs.svg";
+import react from "@assets/logos/react.svg";
+import typescript from "@assets/logos/typescript.svg";
 ---
 
 <Layout title="Home">
-  <Container>
-    <Navbar client:load />
+  <Navbar client:load />
+  <Container class="lg:-mt-[72px]">
     <Hero client:load />
   </Container>
+  <LogoGrid client:load items={[contentful.src, github.src, graphql.src, jira.src, nextjs.src, react.src, typescript.src]}></LogoGrid>
 </Layout>
