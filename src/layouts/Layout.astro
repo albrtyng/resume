@@ -1,39 +1,48 @@
---- 
-interface Props {
-	title: string;
+---
+import { SEO } from "astro-seo";
+import Footer from "@components/footer.astro";
+
+export interface Props {
+  title: string;
 }
 
+// TODO: add screenshot of completed site
+const resolvedImageWithDomain = new URL("/opengraph.jpg", Astro.url).toString();
 const { title } = Astro.props;
 ---
 
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description">
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <!-- TODO: add favicon -->
+    <!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
+    <meta name="generator" content={Astro.generator} />
+    <SEO
+      title={`${title}${title && " | "}Albert Yang`}
+      description="Albert Yang is a Contentful certified front-end software developer"
+      openGraph={{
+        basic: {
+          type: "website",
+          title: `Albert Yang - front-end software developer`,
+          image: resolvedImageWithDomain,
+        },
+        image: {
+          alt: "Albert Yang Homepage Screenshot",
+        },
+      }}
+    />
+  </head>
+  <body>
+    <slot />
+    <Footer />
+    <style is:global>
+      /* Improve Page speed */
+      /* https://css-tricks.com/almanac/properties/c/content-visibility/ */
+      img {
+        content-visibility: auto;
+      }
+    </style>
+  </body>
 </html>
-<style is:global>
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), rgb(var(--accent-light)) 30%, white 60%);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background: #13151A;
-		background-size: 224px;
-	}
-	code {
-		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-			Bitstream Vera Sans Mono, Courier New, monospace;
-	}
-</style>
