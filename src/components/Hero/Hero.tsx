@@ -52,11 +52,11 @@ export const Hero = () => {
     },
   };
 
-  const title = "Build better software with Albert";
+  const title = "Build better software with albert.";
 
   return (
-    <main className="grid place-items-center pb-8 pt-16 md:pt-8 lg:grid-cols-2">
-      <div className="pt-6 md:order-1 md:pb-6">
+    <main className="grid place-items-center pb-8 lg:grid-cols-2">
+      <div className="order-1 md:pb-6">
         {/* TODO: add hero image */}
         <motion.img
           src={heroImage.src}
@@ -71,11 +71,12 @@ export const Hero = () => {
       </div>
 
       <motion.div
+        className="flex w-full flex-wrap justify-center"
         initial="hidden"
         animate="visible"
         variants={animateTextContainer}>
         <motion.h1
-          className="text-5xl font-bold lg:text-6xl lg:tracking-tight xl:text-7xl"
+          className="font-alphapipe max-w-lg text-center text-5xl font-semibold lg:text-left lg:text-6xl lg:tracking-tight xl:text-7xl"
           initial="hidden"
           animate="visible"
           variants={animateTitle}
@@ -89,11 +90,11 @@ export const Hero = () => {
           })}
         </motion.h1>
         <motion.p
-          className="max-w-xl pt-4 text-lg text-slate-600"
+          className="font-quicksand max-w-lg justify-center pt-4 text-center text-lg text-slate-600 lg:text-left"
           variants={animateSubtitle}>
           Albert is a University of Toronto CS graduate (2T0) and
-          Contentful-certified Software Developer.
-          <br /> Built with Astro.build, React, TailwindCSS.
+          Contentful-certified Software Developer. Built with Astro.build,
+          React, TailwindCSS.
         </motion.p>
 
         <div className="mt-6 flex flex-col gap-3 sm:flex-row"></div>

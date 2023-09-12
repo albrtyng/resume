@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+svg {
+  transform: unset !important;
+}
+
+@layer base {
+  @font-face {
+    font-family: bc-alphapipe, sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    src: url("https://use.typekit.net/blg3xki.css");
+  }
+
+  @font-face {
+    font-family: quicksand, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    src: url("https://use.typekit.net/blg3xki.css");
+  }
+}
