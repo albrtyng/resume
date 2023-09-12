@@ -52,8 +52,9 @@ export const MenuButton = ({ open, setOpen }: Props) => {
     <button
       ref={triggerRef}
       onClick={() => setOpen(!open)}
-      aria-expanded={open}>
-      <div ref={menuRef} className=" h-10 w-max md:h-11" />
+      aria-expanded={open}
+      aria-label="Menu">
+      <div ref={menuRef} className=" h-10 w-10 md:h-11 md:w-11" />
     </button>
   );
 };

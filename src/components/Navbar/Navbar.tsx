@@ -119,7 +119,8 @@ export const Navbar = () => {
           variants={navMenuVariants}
           initial="hidden"
           animate={menuOpen ? "visible" : "hidden"}
-          className="absolute top-0 z-10 -mx-5 mt-16 w-[100vw] overflow-hidden bg-white px-5 font-quicksand lg:hidden">
+          className="absolute top-0 z-10 -mx-5 mt-16 w-[100vw] overflow-hidden bg-white px-5 font-quicksand lg:hidden"
+          aria-hidden={!menuOpen}>
           <motion.nav
             variants={navChildrenVariants}
             className="mt-4 flex flex-col gap-6">
