@@ -6,7 +6,7 @@ import { MenuButton } from "./MenuButton";
 import { useBreakpoint } from "@lib/hooks/useBreakpoint";
 import { useFocusTrap } from "@lib/hooks/useTrapFocus";
 
-const navBarVariants: Variants = {
+const animateNavBar: Variants = {
   hidden: {
     opacity: 0,
     y: -80,
@@ -24,7 +24,7 @@ const navBarVariants: Variants = {
   },
 };
 
-const navMenuVariants: Variants = {
+const animateNavMenu: Variants = {
   hidden: {
     height: 0,
     transition: { duration: 0.8, ease: [0.96, 0, 0.6, 0.96] },
@@ -39,7 +39,7 @@ const navMenuVariants: Variants = {
   },
 };
 
-const navChildrenVariants: Variants = {
+const animateNavChildren: Variants = {
   hidden: {
     opacity: 0,
     y: 15,
@@ -108,21 +108,21 @@ export const Navbar = () => {
   return (
     <>
       <motion.div
-        variants={navBarVariants}
+        variants={animateNavBar}
         initial="visible"
         animate={hidden ? "hidden" : "visible"}
-        className="sticky top-0 z-50 -mx-5 flex h-16 w-[100vw] items-center justify-between bg-white px-5 md:h-20 lg:hidden">
+        className="sticky top-0 z-50 flex h-16 w-[100vw] items-center justify-between bg-white px-5 md:h-20 lg:hidden">
         <div ref={mobileLogoRef} className="h-10 w-28 md:h-11" />
         <MenuButton setOpen={setMenuOpen} open={menuOpen} />
         <motion.div
           ref={navMenuRef}
-          variants={navMenuVariants}
+          variants={animateNavMenu}
           initial="hidden"
           animate={menuOpen ? "visible" : "hidden"}
           className="absolute top-0 z-10 -mx-5 mt-16 w-[100vw] overflow-hidden bg-white px-5 font-quicksand lg:hidden"
           aria-hidden={!menuOpen}>
           <motion.nav
-            variants={navChildrenVariants}
+            variants={animateNavChildren}
             className="mt-4 flex flex-col gap-6">
             {/* TODO: replace links */}
             <a href="https://placeholder" className="w-full text-4xl">
@@ -139,20 +139,20 @@ export const Navbar = () => {
       </motion.div>
 
       <motion.div
-        variants={navBarVariants}
+        variants={animateNavBar}
         initial="hidden"
         animate="visible"
         className="sticky top-4 z-50 mt-4 hidden w-full items-center justify-center lg:flex">
-        <nav className="flex h-14 w-full max-w-lg items-center justify-between rounded-lg bg-gray-100/80 p-2 font-quicksand text-base backdrop-blur-md">
+        <nav className="flex h-14 w-full max-w-lg items-center justify-between overflow-hidden rounded-lg bg-gray-100/80 p-2 font-quicksand text-base backdrop-blur-md">
           <div ref={desktopLogoRef} className="h-10 w-28" />
-          <motion.a variants={navChildrenVariants} href="https://placeholder">
+          <motion.a variants={animateNavChildren} href="https://placeholder">
             Projects
           </motion.a>
-          <motion.a variants={navChildrenVariants} href="https://placeholder">
+          <motion.a variants={animateNavChildren} href="https://placeholder">
             Resume
           </motion.a>
           <motion.button
-            variants={navChildrenVariants}
+            variants={animateNavChildren}
             className="h-full w-max rounded-md bg-slate-500 px-4 py-2 text-white">
             Get Started
           </motion.button>
