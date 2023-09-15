@@ -62,15 +62,14 @@ export const Navbar = () => {
 
   const [hidden, setHidden] = useState(false);
   const { scrollY } = useScroll();
-  const { isXs, isMd } = useBreakpoint();
-  const isMobile = isXs || isMd;
+  const { isXs } = useBreakpoint();
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   useEffect(() => {
-    if (mobileLogoRef.current && isMobile) {
+    if (mobileLogoRef.current && isXs) {
       const mobileLogo = lottie.loadAnimation({
         container: mobileLogoRef.current,
         animationData: logoBlack,
@@ -81,10 +80,10 @@ export const Navbar = () => {
 
       return () => mobileLogo.destroy();
     }
-  }, [isMobile]);
+  }, [isXs]);
 
   useEffect(() => {
-    if (desktopLogoRef.current && !isMobile) {
+    if (desktopLogoRef.current && !isXs) {
       const desktopLogo = lottie.loadAnimation({
         container: desktopLogoRef.current,
         animationData: logoBlack,
@@ -95,7 +94,7 @@ export const Navbar = () => {
 
       return () => desktopLogo.destroy();
     }
-  }, [isMobile]);
+  }, [isXs]);
 
   scrollY.on("change", () => {
     if (scrollY?.get() < scrollY?.getPrevious()) {
