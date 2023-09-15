@@ -2,6 +2,7 @@
 import Container from "@components/container.astro";
 import { Hero } from "@components/Hero/Hero";
 import { Navbar } from "@components/Navbar/Navbar";
+import { Experience } from "@components/Experience/Experience";
 import { LogoGrid } from "@components/LogoGrid/LogoGrid";
 import Layout from "@layouts/Layout.astro";
 import contentful from "@assets/logos/contentful.svg";
@@ -15,8 +16,10 @@ import typescript from "@assets/logos/typescript.svg";
 
 <Layout title="Home">
   <Navbar client:load />
-  <Container class="lg:-mt-[72px]">
+  <Container class="lg:-mt-20">
     <Hero client:load />
   </Container>
+  <LogoGrid client:load items={[contentful.src, github.src, graphql.src, jira.src, nextjs.src, react.src, typescript.src]}></LogoGrid>
+  <Experience client:load />
   <LogoGrid client:load items={[contentful.src, github.src, graphql.src, jira.src, nextjs.src, react.src, typescript.src]}></LogoGrid>
 </Layout>

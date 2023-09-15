@@ -42,8 +42,8 @@ export const LogoGrid = ({ items }: { items: Array<string> }) => {
   return (
     <div
       ref={containerRef}
-      className="flex h-72 w-[100vw] items-center justify-center bg-gray-200">
-      <div className="absolute z-10 flex h-[290px] w-[100vw] flex-col flex-wrap content-center items-center justify-center bg-gray-200/75 px-8">
+      className="flex h-72 w-screen items-center justify-center bg-gray-200">
+      <div className="absolute z-10 flex h-[290px] w-screen flex-col flex-wrap content-center items-center justify-center bg-gray-200/75 px-8">
         <motion.p
           className="text-center font-alphapipe text-3xl font-bold lg:text-5xl"
           style={{
@@ -54,7 +54,7 @@ export const LogoGrid = ({ items }: { items: Array<string> }) => {
         </motion.p>
         <motion.p
           ref={subtitleRef}
-          className="max-w-xl pt-4 text-center font-quicksand opacity-0 lg:max-w-2xl">
+          className="max-w-xl pt-4 text-center font-quicksand text-lg opacity-0 lg:max-w-2xl">
           {`Albert ships with the latest web stack out of the box, and he's always open to picking up new tricks! DevOps, Mobile Dev perhaps? ;)`}
         </motion.p>
       </div>

@@ -54,7 +54,7 @@ export const Hero = () => {
   const title = "Build better software with albert.";
 
   return (
-    <div className="flex h-full min-h-[calc(100vh-64px)] w-full flex-col justify-around lg:min-h-[100vh] lg:flex-row lg:items-center lg:justify-between">
+    <div className="flex h-full min-h-[calc(100vh-64px)] w-full flex-col justify-around lg:min-h-screen lg:flex-row lg:items-center lg:justify-between">
       <motion.div
         className="flex w-full flex-wrap justify-center lg:w-1/2"
         initial="hidden"
