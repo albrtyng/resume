@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import lottie from "lottie-web";
 import { Variants, motion, useScroll } from "framer-motion";
-import logoBlack from "@assets/lotties/logo-black.json";
+
 import { MenuButton } from "./MenuButton";
+import logoBlack from "@assets/lotties/logo-black.json";
 import { useBreakpoint } from "@lib/hooks/useBreakpoint";
 import { useFocusTrap } from "@lib/hooks/useTrapFocus";
 
@@ -96,13 +97,25 @@ export const Navbar = () => {
     }
   }, [isXs]);
 
-  scrollY.on("change", () => {
-    if (scrollY?.get() < scrollY?.getPrevious()) {
-      setHidden(false);
-    } else if (scrollY?.get() > 25 && scrollY?.get() > scrollY?.getPrevious()) {
-      setHidden(true);
-    }
-  });
+  useEffect(() => {
+    const unsub = scrollY.on("change", (value) => {
+      if (!isXs) {
+        return;
+      }
+
+      if (value < scrollY?.getPrevious()) {
+        setHidden(false);
+      } else if (
+        value > 25 &&
+        value > scrollY?.getPrevious() &&
+        scrollY?.getPrevious() > 0
+      ) {
+        setHidden(true);
+      }
+    });
+
+    return () => unsub();
+  }, [isXs]);
 
   return (
     <>
@@ -124,13 +137,17 @@ export const Navbar = () => {
             variants={animateNavChildren}
             className="mt-4 flex flex-col gap-6">
             {/* TODO: replace links */}
-            <a href="https://placeholder" className="w-full text-4xl">
-              Projects
+            <a
+              href="https://placeholder"
+              className="w-full font-quicksand text-2xl">
+              Experience
             </a>
-            <a href="https://placeholder" className="w-full text-4xl">
-              Resume
+            <a
+              href="https://placeholder"
+              className="w-full font-quicksand text-2xl">
+              Résumé
             </a>
-            <button className="w-max rounded-md bg-slate-500 px-4 py-2 text-xl text-white">
+            <button className="w-max rounded-md bg-slate-500 px-4 py-2 font-quicksand text-xl text-white">
               Get Started
             </button>
           </motion.nav>
@@ -142,17 +159,24 @@ export const Navbar = () => {
         initial="hidden"
         animate="visible"
         className="sticky top-4 z-50 mt-4 hidden w-full items-center justify-center lg:flex">
-        <nav className="flex h-16 w-full max-w-lg items-center justify-between overflow-hidden rounded-lg bg-gray-100/80 p-2 font-quicksand text-base backdrop-blur-md">
-          <div ref={desktopLogoRef} className="h-10 w-28" />
-          <motion.a variants={animateNavChildren} href="https://placeholder">
-            Projects
+        <nav className="relative flex h-16 w-full max-w-lg items-center justify-between overflow-hidden rounded-lg p-2 font-quicksand text-base">
+          <div className="absolute left-0 top-0 h-full w-full bg-gray-100/80 backdrop-blur-md" />
+          <div ref={desktopLogoRef} className="z-10 h-10 w-28" />
+          <motion.a
+            className="z-10"
+            variants={animateNavChildren}
+            href="https://placeholder">
+            Experience
           </motion.a>
-          <motion.a variants={animateNavChildren} href="https://placeholder">
-            Resume
+          <motion.a
+            className="z-10"
+            variants={animateNavChildren}
+            href="https://placeholder">
+            Résumé
           </motion.a>
           <motion.button
             variants={animateNavChildren}
-            className="h-full w-max rounded-md bg-slate-500 px-4 py-2 text-white">
+            className="z-10 h-full w-max rounded-md bg-slate-500 px-4 py-2 text-white">
             Get Started
           </motion.button>
         </nav>
