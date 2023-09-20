@@ -12,6 +12,11 @@ import "swiper/css/effect-fade";
 import { ExperienceSlide } from "@components/Experience/ExperienceSlide";
 import { Pill } from "@components/Pill/Pill";
 
+import kiaMobile from "@assets/images/kia-mobile.png";
+import kiaDesktop from "@assets/images/kia-desktop.png";
+import cfMobile from "@assets/images/cf-mobile.png";
+import cfDesktop from "@assets/images/cf-desktop.png";
+
 const slides = [
   {
     company: "Konrad Group",
@@ -30,12 +35,37 @@ const slides = [
     content: [
       "Delivered high-quality, robust production code for a diverse array of clients including Kia Canada, Cadillac Fairview, Marks & Spencer, Autozone, and more",
       "Collaborated with designers, product managers and developers to translate creative concepts into production realities for clients and stakeholders",
+      "Tested and resolved accessibility issues on all projects, reaching WCAG 2.0+ AA compliancy across the board",
+    ],
+    projects: [
+      {
+        content: [
+          "Kia Canada was one of Albert's first major projects at Konrad. He collaborated with other developers and designers to build several AEM compatible components, such as the Vehicle Hero Banner, Trim Compare Carousel and Vehicle360.",
+        ],
+        link: {
+          url: "https://www.kia.ca/",
+          alt: "Visit kia.ca (Opens in new tab)",
+          text: "kia.ca",
+        },
+        images: [kiaMobile, kiaDesktop],
+      },
+      {
+        content: [
+          "On Cadillac Fairview, Albert was not only assigned to the original site build, but he was also the sole developer on the site's accessibility revamp a year later. With Albert's quickness and accessibility know-how, Cadillac Fairview was able to reach AA compliancy within 2 months.",
+        ],
+        link: {
+          url: "https://www.shops.cadillacfairview.com/",
+          alt: "Visit shops.cadillacfairview.com (Opens in new tab)",
+          text: "shops.cadillacfairview.com",
+        },
+        images: [cfMobile, cfDesktop],
+      },
     ],
   },
   {
     company: "Magnet Forensics",
     title: "Software Developer Intern",
-    duration: "Jan 2018 - Dec 2018, May 2019 - Aug 2019",
+    duration: "2018, May 2019 - Aug 2019",
     location: "Ottawa, Waterloo CA",
     tools: [
       "C#",
@@ -59,27 +89,29 @@ export const Experience = () => {
   const [swiper, setSwiper] = useState<Swiper>();
 
   return (
-    <div className="flex w-full flex-wrap justify-center">
-      <motion.p className="hidden w-full pt-10 text-center font-alphapipe text-3xl font-bold lg:block lg:text-5xl">
+    <div className="flex w-full flex-wrap justify-center pb-8">
+      <motion.p className="hidden w-full px-8 pt-10 text-center font-alphapipe font-bold [text-wrap:balance] lg:block lg:text-4xl">
         Trusted by some of Canada's top companies
       </motion.p>
-      <div className="flex w-full max-w-5xl flex-col-reverse justify-between lg:min-h-screen lg:flex-row lg:pt-10">
+      <div className="flex w-full max-w-5xl flex-col-reverse justify-between lg:flex-row lg:pt-10">
         <div className="w-full lg:w-1/2">
           {slides.map((slide, index) => (
-            <ExperienceSlide index={index} swiper={swiper}>
-              {slide.content.map((content) => (
-                <p className="font-quicksand text-base lg:text-lg">{content}</p>
-              ))}
-            </ExperienceSlide>
+            <ExperienceSlide
+              key={slide.company}
+              index={index}
+              swiper={swiper}
+              content={slide.content}
+              projects={slide.projects}
+            />
           ))}
         </div>
-        <div className="sticky top-0 w-full lg:relative lg:w-5/12">
-          <motion.p className="w-full bg-white pt-8 text-center font-alphapipe text-3xl font-bold lg:hidden lg:text-5xl">
-            Trusted by some of Canada's top companies
+        <div className="sticky top-0 z-10 w-full lg:relative lg:w-5/12">
+          <motion.p className="w-full bg-white px-8 pb-4 pt-8 text-center font-alphapipe text-3xl font-bold [text-wrap:balance] lg:hidden lg:text-5xl">
+            Trusted by Canada's top companies
           </motion.p>
-          <div className="box-border w-full lg:sticky lg:top-[37.5vh] lg:-z-10">
+          <div className="box-border w-full shadow-sm lg:sticky lg:top-[37.5vh] lg:-z-10 lg:shadow-none">
             <SwiperContainer
-              className="flex h-64 bg-white pr-8 md:h-48 lg:h-[25vh]"
+              className="flex max-h-48 bg-white pr-8 md:h-48 lg:h-[25vh]"
               effect="fade"
               fadeEffect={{
                 crossFade: true,
@@ -90,20 +122,22 @@ export const Experience = () => {
               slidesPerView={1}
               pagination>
               {slides.map((slide) => (
-                <SwiperSlide className="flex h-full w-full flex-wrap content-center justify-center">
-                  <div className="flex w-full flex-wrap content-start gap-2 p-8 md:p-0 md:px-8 md:py-4 lg:p-2">
-                    <motion.p className="w-full font-alphapipe text-3xl font-bold lg:text-4xl">
+                <SwiperSlide
+                  key={slide.company}
+                  className="flex h-full w-full flex-wrap content-center justify-center">
+                  <div className="flex w-full flex-wrap content-start gap-2 px-8 py-4 md:px-8 md:py-4 lg:p-2">
+                    <motion.p className="w-full font-quicksand text-xl font-bold lg:text-2xl">
                       {slide.company}
                     </motion.p>
-                    <p className="w-full font-quicksand text-lg">
+                    <p className="w-full font-quicksand text-base lg:text-lg">
                       {slide.title}
                     </p>
-                    <p className="w-full font-quicksand text-lg">
+                    <p className="w-full font-quicksand text-base lg:text-lg">
                       {slide.duration}
                     </p>
                     <div className="flex flex-wrap gap-1">
                       {slide.tools.map((tool) => (
-                        <Pill text={tool} />
+                        <Pill key={tool} text={tool} />
                       ))}
                     </div>
                   </div>

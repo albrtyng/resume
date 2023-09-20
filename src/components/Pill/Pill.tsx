@@ -1,6 +1,6 @@
 export const Pill = ({ text }: { text: string }) => {
   return (
-    <div className="box-border h-6 w-min rounded-full bg-gray-300 px-2 py-1 font-quicksand text-sm">
+    <div className="flex h-8 w-min items-center justify-center rounded-full bg-gray-300 px-3 py-1 font-quicksand text-xs">
       {text}
     </div>
   );
