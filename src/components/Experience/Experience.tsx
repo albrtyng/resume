@@ -120,6 +120,7 @@ export const Experience = () => {
               modules={[Navigation, Pagination, A11y, EffectFade]}
               direction="vertical"
               slidesPerView={1}
+              allowTouchMove={false}
               pagination>
               {slides.map((slide) => (
                 <SwiperSlide
