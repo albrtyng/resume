@@ -42,8 +42,8 @@ export const LogoGrid = ({ items }: { items: Array<string> }) => {
   return (
     <div
       ref={containerRef}
-      className="relative flex h-96 w-screen content-center items-center justify-center bg-gray-200">
-      <div className="absolute z-10 flex h-full w-screen flex-col flex-wrap content-center items-center justify-center bg-gray-200/90 px-8">
+      className="max-w-screen relative flex h-96 content-center items-center justify-center bg-gray-200">
+      <div className="max-w-screen absolute z-10 flex h-full w-full flex-col flex-wrap content-center items-center justify-center bg-gray-200/90 px-8">
         <motion.p
           className="text-center font-alphapipe text-3xl font-bold lg:text-4xl"
           style={{
