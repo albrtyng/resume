@@ -1,5 +1,6 @@
 import { useRef, useEffect } from "react";
 import lottie, { AnimationItem } from "lottie-web";
+
 import hamburger from "@assets/lotties/hamburger.json";
 
 type Props = {
@@ -43,15 +44,10 @@ export const MenuButton = ({ open, setOpen }: Props) => {
     if (open) {
       menuAnimationRef.current?.playSegments([0, 30], true);
       document.body.style.overflow = "hidden";
-      document.body.style.top = `-${window.scrollY}px`;
-      document.body.style.position = "fixed";
     } else if (open !== undefined) {
+      // TODO: Unresolvable bug on iOS when scrolling from bottom of page
       menuAnimationRef.current?.playSegments([30, 0], true);
       document.body.style.overflow = "unset";
-      const scrollY = document.body.style.top;
-      document.body.style.position = "";
-      document.body.style.top = "";
-      window.scrollTo(0, parseInt(scrollY || "0") * -1);
     }
   }, [open]);
 
