@@ -110,7 +110,7 @@ export const Navbar = () => {
         variants={animateNavBar}
         initial="visible"
         animate={hidden ? "hidden" : "visible"}
-        className="sticky top-0 z-50 flex h-16 w-[100vw] items-center justify-between bg-white px-5 md:h-20 lg:hidden">
+        className="sticky top-0 z-50 flex h-16 w-screen items-center justify-between bg-white px-5 md:h-20 lg:hidden">
         <div ref={mobileLogoRef} className="h-10 w-28 md:h-11" />
         <MenuButton setOpen={setMenuOpen} open={menuOpen} />
         <motion.div
@@ -118,7 +118,7 @@ export const Navbar = () => {
           variants={animateNavMenu}
           initial="hidden"
           animate={menuOpen ? "visible" : "hidden"}
-          className="absolute top-0 z-10 -mx-5 mt-16 w-[100vw] overflow-hidden bg-white px-5 font-quicksand lg:hidden"
+          className="absolute top-0 z-10 -mx-5 mt-16 w-screen overflow-hidden bg-white px-5 font-quicksand lg:hidden"
           aria-hidden={!menuOpen}>
           <motion.nav
             variants={animateNavChildren}
@@ -142,7 +142,7 @@ export const Navbar = () => {
         initial="hidden"
         animate="visible"
         className="sticky top-4 z-50 mt-4 hidden w-full items-center justify-center lg:flex">
-        <nav className="flex h-14 w-full max-w-lg items-center justify-between overflow-hidden rounded-lg bg-gray-100/80 p-2 font-quicksand text-base backdrop-blur-md">
+        <nav className="flex h-16 w-full max-w-lg items-center justify-between overflow-hidden rounded-lg bg-gray-100/80 p-2 font-quicksand text-base backdrop-blur-md">
           <div ref={desktopLogoRef} className="h-10 w-28" />
           <motion.a variants={animateNavChildren} href="https://placeholder">
             Projects

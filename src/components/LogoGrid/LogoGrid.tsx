@@ -42,10 +42,10 @@ export const LogoGrid = ({ items }: { items: Array<string> }) => {
   return (
     <div
       ref={containerRef}
-      className="flex h-72 w-[100vw] items-center justify-center bg-gray-200">
-      <div className="absolute z-10 flex h-[290px] w-[100vw] flex-col flex-wrap content-center items-center justify-center bg-gray-200/75 px-8">
+      className="relative flex h-96 w-screen content-center items-center justify-center bg-gray-200">
+      <div className="absolute z-10 flex h-full w-screen flex-col flex-wrap content-center items-center justify-center bg-gray-200/90 px-8">
         <motion.p
-          className="text-center font-alphapipe text-3xl font-bold lg:text-5xl"
+          className="text-center font-alphapipe text-3xl font-bold lg:text-4xl"
           style={{
             scaleX: textAnimationPlayed ? 1 : scrollYProgress,
             scaleY: textAnimationPlayed ? 1 : scrollYProgress,
@@ -54,11 +54,11 @@ export const LogoGrid = ({ items }: { items: Array<string> }) => {
         </motion.p>
         <motion.p
           ref={subtitleRef}
-          className="max-w-xl pt-4 text-center font-quicksand opacity-0 lg:max-w-2xl">
+          className="max-w-xl pt-4 text-center font-quicksand text-lg opacity-0 [text-wrap:balance] lg:max-w-2xl">
           {`Albert ships with the latest web stack out of the box, and he's always open to picking up new tricks! DevOps, Mobile Dev perhaps? ;)`}
         </motion.p>
       </div>
-      <div className="flex h-full w-full max-w-7xl items-center justify-center overflow-hidden">
+      <div className="flex h-[calc(100%-2px)] w-full max-w-7xl items-center justify-center overflow-hidden">
         <div className="flex w-full skew-y-12 flex-col gap-2">
           {[...Array(5).keys()].map((value) => (
             <LogoTicker
