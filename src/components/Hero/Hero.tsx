@@ -128,7 +128,7 @@ export const Hero: React.FC<HeroProps> = ({ image, subtitle }) => {
           })}
         </motion.h1>
         <motion.div
-          className="text-md prose max-w-xl justify-center text-center font-quicksand text-slate-600 [text-wrap:balance] md:text-lg lg:text-left"
+          className="text-md prose max-w-xl justify-center text-center font-quicksand text-slate-600 md:text-lg lg:text-left"
           variants={animateSubtitle}>
           {subtitle}
         </motion.div>
@@ -145,12 +145,7 @@ export const Hero: React.FC<HeroProps> = ({ image, subtitle }) => {
 
       <div className="flex w-full justify-center lg:w-1/2 lg:justify-end">
         {/* TODO: add hero image */}
-        <motion.div
-          alt-text=""
-          aria-hidden
-          initial="hidden"
-          animate="visible"
-          variants={animateHeroImage}>
+        <motion.div aria-hidden initial="hidden" animate="visible" variants={animateHeroImage}>
           {image}
         </motion.div>
       </div>

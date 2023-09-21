@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion, useAnimate, useScroll } from "framer-motion";
 
 import { LogoTicker, TICKER_DIRECTION_LEFT, TICKER_DIRECTION_RIGHT } from "./LogoTicker";
@@ -19,22 +19,26 @@ export const LogoGrid = ({ items }: { items: string[] }) => {
     offset: ["start end", "0.75 end"],
   });
 
-  scrollYProgress.on("change", () => {
-    if (scrollYProgress.get() === 1) {
-      if (!textAnimationPlayed) {
-        animate(
-          subtitleRef.current,
-          {
-            opacity: [0, 1],
-          },
-          { ease: "easeOut", duration: 1 },
-        );
-        setTextAnimationPlayed(true);
-      } else {
-        animate(subtitleRef.current, { opacity: 1 });
+  useEffect(() => {
+    const unsub = scrollYProgress.on("change", () => {
+      if (scrollYProgress.get() === 1) {
+        if (!textAnimationPlayed) {
+          animate(
+            subtitleRef.current,
+            {
+              opacity: [0, 1],
+            },
+            { ease: "easeOut", duration: 1 },
+          );
+          setTextAnimationPlayed(true);
+        } else {
+          animate(subtitleRef.current, { opacity: 1 });
+        }
       }
-    }
-  });
+    });
+
+    return () => unsub();
+  }, []);
 
   return (
     <div
@@ -65,14 +69,6 @@ export const LogoGrid = ({ items }: { items: string[] }) => {
               direction={value % 2 === 0 ? TICKER_DIRECTION_RIGHT : TICKER_DIRECTION_LEFT}>
               {items.map((item, index) => {
                 return (
-                  // <img
-                  //   className="m-3 -skew-y-12"
-                  //   key={index}
-                  //   src={item}
-                  //   aria-hidden
-                  //   alt=""
-                  //   {...logoDimensions}
-                  // />
                   <Image
                     className="m-3 -skew-y-12"
                     key={index}

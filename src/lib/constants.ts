@@ -4,7 +4,7 @@ const slides = [
     title: "Software Developer II, I, Associate",
     duration: "Sep 2020 - Aug 2023",
     location: "Toronto CA",
-    tools: ["Typescript", "React", "Postgres", "NextJS", "Contentful", "AEM", "A11y"],
+    tools: ["Typescript", "React", "Postgres", "NextJS", "Contentful", "AEM", "GraphQL", "A11y"],
     projects: [
       {
         link: {
