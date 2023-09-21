@@ -1,5 +1,10 @@
-Albert is a University of Toronto CS graduate and **Contentful-certified** Software Developer. He has over a half decade of software development experience with proven results of **doubling web traffic and engagement** for a
-diverse array of clients, with **6.5m+ organic monthly visits** spanning across the projects he's been involved in. Wanna learn more? Have scroll-through!
-<br />
+Albert is a software developer with over half a decade of experience building customer-facing production applications
+
+<p class="text-left">
+🎓 University of Toronto Computer Science <br /> 🚢 Proven results of <b>doubling web traffic and engagement</b> for a
+diverse array of clients, <b>6.5m+ organic monthly visits</b> across projects <br /> ☑️ Contentful certified
+</p>
+
+Wanna learn more? Have scroll-through!
 
 _Built with Astro.build, React, TailwindCSS._
