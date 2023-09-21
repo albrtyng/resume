@@ -1,16 +1,16 @@
 import { useEffect, useRef, type ReactNode } from "react";
-import { motion } from "framer-motion";
+import { type Variants, motion } from "framer-motion";
 import lottie from "lottie-web";
 import scrollDown from "@assets/lotties/scroll-down.json";
 
 import { useBreakpoint } from "@lib/hooks/useBreakpoint";
 
-const animateHeroImage = {
+const animateHeroImage: Variants = {
   hidden: { opacity: 0, y: 100 },
   visible: { opacity: 1, y: 0, transition: { ease: "easeOut", duration: 1 } },
 };
 
-const animateTitle = {
+const animateTitle: Variants = {
   hidden: {},
   visible: {
     transition: {
@@ -20,7 +20,7 @@ const animateTitle = {
   },
 };
 
-const animateCharacter = {
+const animateCharacter: Variants = {
   hidden: {
     opacity: 0,
   },
@@ -34,7 +34,7 @@ const animateCharacter = {
   },
 };
 
-const animateSubtitle = {
+const animateSubtitle: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -42,7 +42,7 @@ const animateSubtitle = {
   },
 };
 
-const animateTextContainer = {
+const animateTextContainer: Variants = {
   hidden: {
     opacity: 0,
   },
@@ -54,7 +54,7 @@ const animateTextContainer = {
   },
 };
 
-const animateScrollIndicator = {
+const animateScrollIndicator: Variants = {
   hidden: {
     opacity: 0,
   },
@@ -128,7 +128,7 @@ export const Hero: React.FC<HeroProps> = ({ image, subtitle }) => {
           })}
         </motion.h1>
         <motion.div
-          className="prose max-w-lg justify-center text-center font-quicksand text-lg text-slate-600 lg:text-left"
+          className="prose max-w-lg justify-center text-center font-quicksand text-lg text-slate-600 [text-wrap:balance] lg:text-left"
           variants={animateSubtitle}>
           {subtitle}
         </motion.div>
