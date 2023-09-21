@@ -1,26 +1,38 @@
 ---
+import { Image } from "astro:assets";
+
 import Container from "@components/container.astro";
 import { Hero } from "@components/Hero/Hero";
 import { Navbar } from "@components/Navbar/Navbar";
 import { Experience } from "@components/Experience/Experience";
 import { LogoGrid } from "@components/LogoGrid/LogoGrid";
 import { Contact } from "@components/Contact/Contact";
+
 import Layout from "@layouts/Layout.astro";
 import contentful from "@assets/logos/contentful.svg";
+import heroImage from "@assets/images/hero.png";
 import github from "@assets/logos/github.svg";
 import graphql from "@assets/logos/graphql.svg";
 import jira from "@assets/logos/jira.svg";
 import nextjs from "@assets/logos/nextjs.svg";
 import react from "@assets/logos/react.svg";
 import typescript from "@assets/logos/typescript.svg";
+
+import HeroSubtitle from "@components/Hero/HeroSubtitle.md";
 ---
 
 <Layout title="Home">
   <Navbar client:load />
-  <Container class="lg:-mt-20">
-    <Hero client:load />
+  <Container>
+    <Hero client:load>
+      <Image slot="image" src={heroImage} alt="" aria-hidden />
+      <HeroSubtitle slot="subtitle" />
+    </Hero>
   </Container>
-  <LogoGrid client:load items={[contentful.src, github.src, graphql.src, jira.src, nextjs.src, react.src, typescript.src]}></LogoGrid>
+  <LogoGrid
+    client:load
+    items={[contentful.src, github.src, graphql.src, jira.src, nextjs.src, react.src, typescript.src]}
+  />
   <Experience client:load />
   <Contact />
 </Layout>

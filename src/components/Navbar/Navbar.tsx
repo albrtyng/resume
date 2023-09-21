@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import lottie from "lottie-web";
-import { Variants, motion, useScroll } from "framer-motion";
+import { type Variants, motion, useScroll } from "framer-motion";
 
 import { MenuButton } from "./MenuButton";
 import logoBlack from "@assets/lotties/logo-black.json";
@@ -116,11 +116,7 @@ export const Navbar = () => {
 
       if (value < scrollY?.getPrevious()) {
         setHidden(false);
-      } else if (
-        value > 25 &&
-        value > scrollY?.getPrevious() &&
-        scrollY?.getPrevious() > 0
-      ) {
+      } else if (value > 25 && value > scrollY?.getPrevious() && scrollY?.getPrevious() > 0) {
         setHidden(true);
       }
     });
@@ -144,20 +140,12 @@ export const Navbar = () => {
           animate={menuOpen ? "visible" : "hidden"}
           className="absolute top-0 z-10 -mx-5 mt-16 w-screen overflow-hidden bg-white px-5 font-quicksand lg:hidden"
           aria-hidden={!menuOpen}>
-          <motion.nav
-            variants={animateNavChildren}
-            className="mt-4 flex flex-col gap-6">
+          <motion.nav variants={animateNavChildren} className="mt-4 flex flex-col gap-6">
             {/* TODO: replace links */}
-            <a
-              href="#experience"
-              className="w-full font-quicksand text-2xl"
-              onClick={() => setMenuOpen(false)}>
+            <a href="#experience" className="w-full font-quicksand text-2xl" onClick={() => setMenuOpen(false)}>
               Experience
             </a>
-            <a
-              href="https://placeholder"
-              className="w-full font-quicksand text-2xl"
-              onClick={() => setMenuOpen(false)}>
+            <a href="https://placeholder" className="w-full font-quicksand text-2xl" onClick={() => setMenuOpen(false)}>
               Résumé
             </a>
             <a
@@ -185,10 +173,7 @@ export const Navbar = () => {
             onClick={() => setMenuOpen(false)}>
             Experience
           </motion.a>
-          <motion.a
-            className="z-10 hover:text-gray-400"
-            variants={animateNavChildren}
-            href="https://placeholder">
+          <motion.a className="z-10 hover:text-gray-400" variants={animateNavChildren} href="https://placeholder">
             Résumé
           </motion.a>
           <motion.a

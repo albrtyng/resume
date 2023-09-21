@@ -1,17 +1,16 @@
-import { useEffect, useRef } from "react";
-import { motion } from "framer-motion";
+import { useEffect, useRef, type ReactNode } from "react";
+import { type Variants, motion } from "framer-motion";
 import lottie from "lottie-web";
 import scrollDown from "@assets/lotties/scroll-down.json";
 
-import heroImage from "@assets/images/hero.png";
 import { useBreakpoint } from "@lib/hooks/useBreakpoint";
 
-const animateHeroImage = {
+const animateHeroImage: Variants = {
   hidden: { opacity: 0, y: 100 },
   visible: { opacity: 1, y: 0, transition: { ease: "easeOut", duration: 1 } },
 };
 
-const animateTitle = {
+const animateTitle: Variants = {
   hidden: {},
   visible: {
     transition: {
@@ -21,7 +20,7 @@ const animateTitle = {
   },
 };
 
-const animateCharacter = {
+const animateCharacter: Variants = {
   hidden: {
     opacity: 0,
   },
@@ -35,7 +34,7 @@ const animateCharacter = {
   },
 };
 
-const animateSubtitle = {
+const animateSubtitle: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -43,7 +42,7 @@ const animateSubtitle = {
   },
 };
 
-const animateTextContainer = {
+const animateTextContainer: Variants = {
   hidden: {
     opacity: 0,
   },
@@ -55,7 +54,7 @@ const animateTextContainer = {
   },
 };
 
-const animateScrollIndicator = {
+const animateScrollIndicator: Variants = {
   hidden: {
     opacity: 0,
   },
@@ -68,7 +67,12 @@ const animateScrollIndicator = {
   },
 };
 
-export const Hero = () => {
+type HeroProps = {
+  image: ReactNode[];
+  subtitle: ReactNode[];
+};
+
+export const Hero: React.FC<HeroProps> = ({ image, subtitle }) => {
   const mobileScrollIndicatorRef = useRef<HTMLDivElement>(null);
   const desktopScrollIndicatorRef = useRef<HTMLDivElement>(null);
   const { isXs } = useBreakpoint();
@@ -103,14 +107,14 @@ export const Hero = () => {
   }, [isXs]);
 
   return (
-    <section className="flex h-full min-h-[calc(100vh-64px)] w-full flex-col justify-around lg:min-h-screen lg:flex-row lg:items-center lg:justify-between">
+    <section className="flex h-full min-h-[calc(100vh-64px)] w-full flex-col justify-around lg:-mt-20 lg:min-h-screen lg:flex-row lg:items-center lg:justify-between lg:py-20">
       <motion.div
-        className="flex w-full flex-wrap justify-center lg:w-1/2"
+        className="flex h-full w-full flex-wrap items-center justify-center lg:w-1/2"
         initial="hidden"
         animate="visible"
         variants={animateTextContainer}>
         <motion.h1
-          className="max-w-lg text-center font-alphapipe text-5xl font-semibold lg:text-left lg:text-6xl lg:tracking-tight xl:text-7xl"
+          className="max-w-xl px-8 text-center font-alphapipe text-4xl font-semibold md:px-0 lg:text-left lg:text-5xl lg:tracking-tight xl:text-6xl"
           initial="hidden"
           animate="visible"
           variants={animateTitle}
@@ -123,22 +127,17 @@ export const Hero = () => {
             );
           })}
         </motion.h1>
-        <motion.p
-          className="max-w-lg justify-center pt-4 text-center font-quicksand text-lg text-slate-600 lg:text-left"
+        <motion.div
+          className="text-md prose max-w-xl justify-center text-center font-quicksand text-slate-600 [text-wrap:balance] md:text-lg lg:text-left"
           variants={animateSubtitle}>
-          Albert is a University of Toronto CS graduate (2T0) and
-          Contentful-certified Software Developer. Built with Astro.build,
-          React, TailwindCSS.
-        </motion.p>
+          {subtitle}
+        </motion.div>
         <motion.div
           className="flex h-16 w-full justify-center md:h-24 lg:hidden"
           initial="hidden"
           animate="visible"
           variants={animateScrollIndicator}>
-          <div
-            ref={mobileScrollIndicatorRef}
-            className="h-16 w-16 md:h-24 md:w-24"
-          />
+          <div ref={mobileScrollIndicatorRef} className="h-16 w-16 md:h-24 md:w-24" />
         </motion.div>
 
         <div className="mt-6 flex flex-col gap-3 sm:flex-row"></div>
@@ -146,16 +145,9 @@ export const Hero = () => {
 
       <div className="flex w-full justify-center lg:w-1/2 lg:justify-end">
         {/* TODO: add hero image */}
-        <motion.img
-          src={heroImage.src}
-          alt=""
-          aria-hidden
-          width={520}
-          height={424}
-          initial="hidden"
-          animate="visible"
-          variants={animateHeroImage}
-        />
+        <motion.div alt-text="" aria-hidden initial="hidden" animate="visible" variants={animateHeroImage}>
+          {image}
+        </motion.div>
       </div>
 
       <motion.div
@@ -163,10 +155,7 @@ export const Hero = () => {
         initial="hidden"
         animate="visible"
         variants={animateScrollIndicator}>
-        <div
-          ref={desktopScrollIndicatorRef}
-          className="h-16 w-16 md:h-24 md:w-24"
-        />
+        <div ref={desktopScrollIndicatorRef} className="h-16 w-16 md:h-24 md:w-24" />
       </motion.div>
     </section>
   );
