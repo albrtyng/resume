@@ -1,4 +1,4 @@
-import { FunctionComponent, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import cx from "classnames";
 import { useAnimate, useInView, usePresence } from "framer-motion";
 import { v4 as uuidv4 } from "uuid";
@@ -8,19 +8,19 @@ export const TICKER_DIRECTION_LEFT = -1;
 export const TICKER_DIRECTION_RIGHT = 1;
 
 type TickerProps = {
-  children: JSX.Element[];
+  children: ReactNode[];
   className?: string;
   duration?: number;
   isPlaying?: boolean;
   direction?: number;
 };
 
-export const LogoTicker: FunctionComponent<TickerProps> = ({
+export const LogoTicker: React.FC<TickerProps> = ({
   children,
   className = "",
   duration = 10,
   direction = TICKER_DIRECTION_LEFT,
-}: TickerProps) => {
+}) => {
   const tickerContainerRef = useRef<HTMLDivElement>(null);
   const tickerUUID = useRef<string>("");
   const [tickerContentWidth, setTickerContentWidth] = useState<

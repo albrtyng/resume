@@ -67,14 +67,13 @@ export const Navbar = () => {
 
   useEffect(() => {
     if (location.hash) {
-      // TODO: Fix scroll behaviour, scroll only when loaded
       const id = location.hash.substring(1);
       setTimeout(() => {
         const el = document.getElementById(id);
         if (el) {
           el.scrollIntoView();
         }
-      }, 3000);
+      }, 1000);
     } else {
       window.scrollTo(0, 0);
     }

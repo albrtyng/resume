@@ -1,0 +1,57 @@
+---
+import { Image } from "astro:assets";
+
+import { Experience as ReactExperience } from "@components/Experience/Experience";
+import { ExperienceSlide as ReactSlide } from "@components/Experience/ExperienceSlide";
+
+import { default as SlideContent } from "@components/Experience/ExperienceSlide.astro";
+import SlideProject from "@components/Experience/SlideProject.astro";
+
+import kiaMobile from "@assets/images/kia-mobile.png";
+import kiaDesktop from "@assets/images/kia-desktop.png";
+import cfMobile from "@assets/images/cf-mobile.png";
+import cfDesktop from "@assets/images/cf-desktop.png";
+
+import * as c from "@lib/constants";
+
+import KonradSynopsis from "./Content/konrad.md";
+import KiaSynopsis from "./Content/kia.md";
+import CFSynopsis from "./Content/cf.md";
+import MagnetSynopsis from "./Content/magnet.md";
+---
+
+<ReactExperience client:load>
+  <ReactSlide client:load index={0}>
+    <SlideContent class="mb-16 flex flex-wrap justify-center gap-4 px-8 py-8 md:px-16 lg:pt-0">
+      <KonradSynopsis slot="synopsis" />
+      <SlideProject slot="projects" link={c.slides[0].projects[0].link}>
+        <KiaSynopsis slot="synopsis" />
+        <Image
+          slot="images"
+          class="absolute bottom-3 right-1 z-[1] lg:bottom-0"
+          src={kiaMobile}
+          alt=""
+          height={208}
+        />
+        <Image slot="images" src={kiaDesktop} alt="" class="absolute aspect-auto" />
+      </SlideProject>
+      <SlideProject slot="projects" link={c.slides[0].projects[1].link}>
+        <CFSynopsis slot="synopsis" />
+        <Image
+          slot="images"
+          class="absolute bottom-3 right-1 z-[1] lg:bottom-0"
+          src={cfMobile}
+          alt=""
+          height={208}
+        />
+        <Image slot="images" src={cfDesktop} alt="" class="absolute aspect-auto" />
+      </SlideProject>
+    </SlideContent>
+  </ReactSlide>
+
+  <ReactSlide client:load index={1}>
+    <SlideContent class="flex flex-wrap justify-center gap-4 px-8 py-8 mb-0 md:px-16">
+      <MagnetSynopsis slot="synopsis" />
+    </SlideContent>
+  </ReactSlide>
+</ReactExperience>

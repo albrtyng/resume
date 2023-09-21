@@ -9,7 +9,7 @@
     }
   ],
   "tabWidth": 2,
-  "printWidth": 120,
+  "printWidth": 100,
   "useTabs": false,
   "bracketSameLine": true
 }
