@@ -23,13 +23,16 @@ import HeroSubtitle from "@components/Hero/HeroSubtitle.md";
 
 <Layout title="Home">
   <Navbar client:load />
-  <Container class="lg:-mt-20">
+  <Container>
     <Hero client:load>
       <Image slot="image" src={heroImage} alt="" aria-hidden />
       <HeroSubtitle slot="subtitle" />
     </Hero>
   </Container>
-  <LogoGrid client:load items={[contentful.src, github.src, graphql.src, jira.src, nextjs.src, react.src, typescript.src]}></LogoGrid>
+  <LogoGrid
+    client:load
+    items={[contentful.src, github.src, graphql.src, jira.src, nextjs.src, react.src, typescript.src]}
+  />
   <Experience client:load />
   <Contact />
 </Layout>

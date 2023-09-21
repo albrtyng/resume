@@ -107,14 +107,14 @@ export const Hero: React.FC<HeroProps> = ({ image, subtitle }) => {
   }, [isXs]);
 
   return (
-    <section className="flex h-full min-h-[calc(100vh-64px)] w-full flex-col justify-around lg:min-h-screen lg:flex-row lg:items-center lg:justify-between">
+    <section className="flex h-full min-h-[calc(100vh-64px)] w-full flex-col justify-around lg:-mt-20 lg:min-h-screen lg:flex-row lg:items-center lg:justify-between lg:py-20">
       <motion.div
-        className="flex w-full flex-wrap justify-center lg:w-1/2"
+        className="flex h-full w-full flex-wrap items-center justify-center lg:w-1/2"
         initial="hidden"
         animate="visible"
         variants={animateTextContainer}>
         <motion.h1
-          className="max-w-lg px-8 text-center font-alphapipe text-5xl font-semibold md:px-0 lg:text-left lg:text-6xl lg:tracking-tight xl:text-7xl"
+          className="max-w-xl px-8 text-center font-alphapipe text-4xl font-semibold md:px-0 lg:text-left lg:text-5xl lg:tracking-tight xl:text-6xl"
           initial="hidden"
           animate="visible"
           variants={animateTitle}
@@ -128,7 +128,7 @@ export const Hero: React.FC<HeroProps> = ({ image, subtitle }) => {
           })}
         </motion.h1>
         <motion.div
-          className="prose max-w-lg justify-center text-center font-quicksand text-lg text-slate-600 [text-wrap:balance] lg:text-left"
+          className="text-md prose max-w-xl justify-center text-center font-quicksand text-slate-600 [text-wrap:balance] md:text-lg lg:text-left"
           variants={animateSubtitle}>
           {subtitle}
         </motion.div>
