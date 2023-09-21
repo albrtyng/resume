@@ -17,7 +17,6 @@ export const ExperienceSlide = ({ index, children }: ExperienceSlideProps) => {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        console.log(entry.isIntersecting);
         setIntersecting(entry.isIntersecting);
       },
       {
@@ -33,7 +32,7 @@ export const ExperienceSlide = ({ index, children }: ExperienceSlideProps) => {
     const observerOpacity = new IntersectionObserver(
       ([entry]) => {
         (entry.target as HTMLElement).style.opacity = `${Math.min(
-          entry.intersectionRatio * 2,
+          entry.intersectionRatio * 2.5,
           1,
         )}`;
       },
@@ -47,11 +46,8 @@ export const ExperienceSlide = ({ index, children }: ExperienceSlideProps) => {
   }, []);
 
   useEffect(() => {
-    const swiperElement = document.querySelector<SwiperInstance>(
-      ".experience-carousel",
-    );
+    const swiperElement = document.querySelector<SwiperInstance>(".experience-carousel");
     swiperElement?.swiper?.slideTo(index);
-    // swiper?.slideTo(index);
   }, [intersecting]);
 
   return <div ref={ref}>{children}</div>;

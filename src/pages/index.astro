@@ -11,10 +11,12 @@ import { Contact } from "@components/Contact/Contact";
 import Layout from "@layouts/Layout.astro";
 import Experience from "@components/Experience/Experience.astro";
 
+import astro from "@assets/logos/astro.svg";
 import contentful from "@assets/logos/contentful.svg";
 import heroImage from "@assets/images/hero.png";
 import github from "@assets/logos/github.svg";
 import graphql from "@assets/logos/graphql.svg";
+import jenkins from "@assets/logos/jenkins.png";
 import jira from "@assets/logos/jira.svg";
 import nextjs from "@assets/logos/nextjs.svg";
 import react from "@assets/logos/react.svg";
@@ -34,9 +36,11 @@ import HeroSubtitle from "@components/Hero/HeroSubtitle.md";
   <LogoGrid
     client:load
     items={[
+      astro.src,
       contentful.src,
       github.src,
       graphql.src,
+      jenkins.src,
       jira.src,
       nextjs.src,
       react.src,
