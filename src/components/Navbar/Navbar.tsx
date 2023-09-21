@@ -66,7 +66,18 @@ export const Navbar = () => {
   const { isXs } = useBreakpoint();
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    if (location.hash) {
+      // TODO: Fix scroll behaviour, scroll only when loaded
+      const id = location.hash.substring(1);
+      // setTimeout(() => {
+      //   const el = document.getElementById(id);
+      //   if (el) {
+      //     el.scrollIntoView();
+      //   }
+      // }, 2500);
+    } else {
+      window.scrollTo(0, 0);
+    }
   }, []);
 
   useEffect(() => {
