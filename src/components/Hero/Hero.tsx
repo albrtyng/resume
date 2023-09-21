@@ -145,7 +145,12 @@ export const Hero: React.FC<HeroProps> = ({ image, subtitle }) => {
 
       <div className="flex w-full justify-center lg:w-1/2 lg:justify-end">
         {/* TODO: add hero image */}
-        <motion.div alt-text="" aria-hidden initial="hidden" animate="visible" variants={animateHeroImage}>
+        <motion.div
+          alt-text=""
+          aria-hidden
+          initial="hidden"
+          animate="visible"
+          variants={animateHeroImage}>
           {image}
         </motion.div>
       </div>

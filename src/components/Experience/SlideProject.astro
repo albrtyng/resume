@@ -1,0 +1,23 @@
+---
+import { Icon } from "@components/Icon/Icon";
+
+const { link, content } = Astro.props;
+const { alt, url, text } = link;
+---
+
+<div class="my-4 flex w-full flex-wrap justify-center">
+  <a
+    class="flex w-full content-center justify-center text-center font-quicksand text-base hover:underline lg:text-lg"
+    alt-text={alt}
+    href={url}
+    target="_blank">
+    {text}
+    <Icon height={16} width={16} alt-text="" aria-hidden />
+  </a>
+
+  <div class="relative mb-8 h-60 w-full max-w-md">
+    <slot name="images" />
+  </div>
+
+  <slot name="synopsis" />
+</div>

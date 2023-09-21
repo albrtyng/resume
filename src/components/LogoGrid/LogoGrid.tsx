@@ -1,21 +1,18 @@
-import { motion, useAnimate, useScroll } from "framer-motion";
 import { useState, useRef } from "react";
-import {
-  LogoTicker,
-  TICKER_DIRECTION_LEFT,
-  TICKER_DIRECTION_RIGHT,
-} from "./LogoTicker";
+import { motion, useAnimate, useScroll } from "framer-motion";
+
+import { LogoTicker, TICKER_DIRECTION_LEFT, TICKER_DIRECTION_RIGHT } from "./LogoTicker";
+import { Image } from "@components/Image/Image";
 
 const logoDimensions = {
   height: 112,
   width: 112,
 };
 
-export const LogoGrid = ({ items }: { items: Array<string> }) => {
+export const LogoGrid = ({ items }: { items: string[] }) => {
   const [subtitleRef, animate] = useAnimate<HTMLParagraphElement>();
   const containerRef = useRef<HTMLDivElement>(null);
-  const [textAnimationPlayed, setTextAnimationPlayed] =
-    useState<boolean>(false);
+  const [textAnimationPlayed, setTextAnimationPlayed] = useState<boolean>(false);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -65,12 +62,18 @@ export const LogoGrid = ({ items }: { items: Array<string> }) => {
               className={value === 0 || value === 4 ? "hidden lg:block" : ""}
               key={value}
               duration={20}
-              direction={
-                value % 2 === 0 ? TICKER_DIRECTION_RIGHT : TICKER_DIRECTION_LEFT
-              }>
+              direction={value % 2 === 0 ? TICKER_DIRECTION_RIGHT : TICKER_DIRECTION_LEFT}>
               {items.map((item, index) => {
                 return (
-                  <img
+                  // <img
+                  //   className="m-3 -skew-y-12"
+                  //   key={index}
+                  //   src={item}
+                  //   aria-hidden
+                  //   alt=""
+                  //   {...logoDimensions}
+                  // />
+                  <Image
                     className="m-3 -skew-y-12"
                     key={index}
                     src={item}
