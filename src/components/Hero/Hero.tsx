@@ -114,7 +114,7 @@ export const Hero: React.FC<HeroProps> = ({ image, subtitle }) => {
         animate="visible"
         variants={animateTextContainer}>
         <motion.h1
-          className="max-w-lg text-center font-alphapipe text-5xl font-semibold lg:text-left lg:text-6xl lg:tracking-tight xl:text-7xl"
+          className="max-w-lg px-8 text-center font-alphapipe text-5xl font-semibold md:px-0 lg:text-left lg:text-6xl lg:tracking-tight xl:text-7xl"
           initial="hidden"
           animate="visible"
           variants={animateTitle}
