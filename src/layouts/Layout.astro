@@ -1,7 +1,9 @@
 ---
 import { SEO } from "astro-seo";
-import Footer from "@components/footer.astro";
 
+import Container from "@components/container.astro";
+import Footer from "@components/footer.astro";
+import { Social } from "@components/Social/Social";
 export interface Props {
   title: string;
 }
@@ -38,6 +40,9 @@ import '../styles/index.scss';
     />
   </head>
   <body>
+    <Container className="relative">
+      <Social client:load/>
+    </Container>
     <slot />
     <Footer />
   </body>

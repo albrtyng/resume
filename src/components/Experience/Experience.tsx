@@ -16,11 +16,12 @@ import kiaMobile from "@assets/images/kia-mobile.png";
 import kiaDesktop from "@assets/images/kia-desktop.png";
 import cfMobile from "@assets/images/cf-mobile.png";
 import cfDesktop from "@assets/images/cf-desktop.png";
+import { useBreakpoint } from "@lib/hooks/useBreakpoint";
 
 const slides = [
   {
     company: "Konrad Group",
-    title: "Software Developer II",
+    title: "Software Developer II, I, Associate",
     duration: "Sep 2020 - Aug 2023",
     location: "Toronto CA",
     tools: [
@@ -87,13 +88,16 @@ const slides = [
 
 export const Experience = () => {
   const [swiper, setSwiper] = useState<Swiper>();
+  const { isXs } = useBreakpoint();
 
   return (
-    <div className="flex w-full flex-wrap justify-center pb-8">
+    <section
+      id="experience"
+      className="flex w-full scroll-mt-16 flex-wrap justify-center pb-8">
       <motion.p className="hidden w-full px-8 pt-10 text-center font-alphapipe font-bold [text-wrap:balance] lg:block lg:text-4xl">
         Trusted by some of Canada's top companies
       </motion.p>
-      <div className="flex w-full max-w-5xl flex-col-reverse justify-between lg:flex-row lg:pt-10">
+      <div className="flex w-full max-w-5xl flex-col-reverse justify-between lg:flex-row lg:px-8 lg:pt-10 xl:px-0">
         <div className="w-full lg:w-1/2">
           {slides.map((slide, index) => (
             <ExperienceSlide
@@ -111,11 +115,12 @@ export const Experience = () => {
           </motion.p>
           <div className="box-border w-full shadow-sm lg:sticky lg:top-[37.5vh] lg:-z-10 lg:shadow-none">
             <SwiperContainer
-              className="flex max-h-48 bg-white pr-8 md:h-48 lg:h-[25vh]"
+              className="flex max-h-[200px] bg-white pr-8 md:h-48 lg:h-[25vh]"
               effect="fade"
               fadeEffect={{
                 crossFade: true,
               }}
+              height={isXs ? 200 : null}
               onSwiper={setSwiper}
               modules={[Navigation, Pagination, A11y, EffectFade]}
               direction="vertical"
@@ -126,7 +131,7 @@ export const Experience = () => {
                 <SwiperSlide
                   key={slide.company}
                   className="flex h-full w-full flex-wrap content-center justify-center">
-                  <div className="flex w-full flex-wrap content-start gap-2 px-8 py-4 md:px-8 md:py-4 lg:p-2">
+                  <div className="flex w-full flex-wrap content-start gap-2 px-8  py-4 md:px-16 md:py-4 lg:p-2">
                     <motion.p className="w-full font-quicksand text-xl font-bold lg:text-2xl">
                       {slide.company}
                     </motion.p>
@@ -136,7 +141,7 @@ export const Experience = () => {
                     <p className="w-full font-quicksand text-base lg:text-lg">
                       {slide.duration}
                     </p>
-                    <div className="flex flex-wrap gap-1">
+                    <div className="flex h-[68px] flex-wrap gap-1 overflow-scroll lg:[height:none] lg:[overflow:unset]">
                       {slide.tools.map((tool) => (
                         <Pill key={tool} text={tool} />
                       ))}
@@ -148,6 +153,6 @@ export const Experience = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
