@@ -1,9 +1,8 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, type ReactNode } from "react";
 import { motion } from "framer-motion";
 import lottie from "lottie-web";
 import scrollDown from "@assets/lotties/scroll-down.json";
 
-import heroImage from "@assets/images/hero.png";
 import { useBreakpoint } from "@lib/hooks/useBreakpoint";
 
 const animateHeroImage = {
@@ -68,7 +67,12 @@ const animateScrollIndicator = {
   },
 };
 
-export const Hero = () => {
+type HeroProps = {
+  image: ReactNode[];
+  subtitle: ReactNode[];
+};
+
+export const Hero: React.FC<HeroProps> = ({ image, subtitle }) => {
   const mobileScrollIndicatorRef = useRef<HTMLDivElement>(null);
   const desktopScrollIndicatorRef = useRef<HTMLDivElement>(null);
   const { isXs } = useBreakpoint();
@@ -123,22 +127,17 @@ export const Hero = () => {
             );
           })}
         </motion.h1>
-        <motion.p
-          className="max-w-lg justify-center pt-4 text-center font-quicksand text-lg text-slate-600 lg:text-left"
+        <motion.div
+          className="prose max-w-lg justify-center text-center font-quicksand text-lg text-slate-600 lg:text-left"
           variants={animateSubtitle}>
-          Albert is a University of Toronto CS graduate (2T0) and
-          Contentful-certified Software Developer. Built with Astro.build,
-          React, TailwindCSS.
-        </motion.p>
+          {subtitle}
+        </motion.div>
         <motion.div
           className="flex h-16 w-full justify-center md:h-24 lg:hidden"
           initial="hidden"
           animate="visible"
           variants={animateScrollIndicator}>
-          <div
-            ref={mobileScrollIndicatorRef}
-            className="h-16 w-16 md:h-24 md:w-24"
-          />
+          <div ref={mobileScrollIndicatorRef} className="h-16 w-16 md:h-24 md:w-24" />
         </motion.div>
 
         <div className="mt-6 flex flex-col gap-3 sm:flex-row"></div>
@@ -146,16 +145,9 @@ export const Hero = () => {
 
       <div className="flex w-full justify-center lg:w-1/2 lg:justify-end">
         {/* TODO: add hero image */}
-        <motion.img
-          src={heroImage.src}
-          alt=""
-          aria-hidden
-          width={520}
-          height={424}
-          initial="hidden"
-          animate="visible"
-          variants={animateHeroImage}
-        />
+        <motion.div alt-text="" aria-hidden initial="hidden" animate="visible" variants={animateHeroImage}>
+          {image}
+        </motion.div>
       </div>
 
       <motion.div
@@ -163,10 +155,7 @@ export const Hero = () => {
         initial="hidden"
         animate="visible"
         variants={animateScrollIndicator}>
-        <div
-          ref={desktopScrollIndicatorRef}
-          className="h-16 w-16 md:h-24 md:w-24"
-        />
+        <div ref={desktopScrollIndicatorRef} className="h-16 w-16 md:h-24 md:w-24" />
       </motion.div>
     </section>
   );

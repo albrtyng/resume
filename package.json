@@ -11,12 +11,11 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/image": "^0.17.3",
-    "@astrojs/react": "^2.3.2",
-    "@astrojs/tailwind": "^4.0.0",
+    "@astrojs/react": "^3.0.2",
+    "@astrojs/tailwind": "^5.0.0",
     "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.6",
-    "astro": "^2.10.14",
+    "astro": "^3.1.1",
     "astro-seo": "^0.8.0",
     "classnames": "^2.3.2",
     "framer-motion": "^10.16.1",
@@ -29,6 +28,7 @@
     "uuid": "^9.0.0"
   },
   "devDependencies": {
+    "@tailwindcss/typography": "^0.5.10",
     "@types/uuid": "^9.0.2",
     "@typescript-eslint/parser": "^6.4.1",
     "eslint": "^8.48.0",
