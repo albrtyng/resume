@@ -103,7 +103,7 @@ export const Hero = () => {
   }, [isXs]);
 
   return (
-    <div className="flex h-full min-h-[calc(100vh-64px)] w-full flex-col justify-around lg:min-h-screen lg:flex-row lg:items-center lg:justify-between">
+    <section className="flex h-full min-h-[calc(100vh-64px)] w-full flex-col justify-around lg:min-h-screen lg:flex-row lg:items-center lg:justify-between">
       <motion.div
         className="flex w-full flex-wrap justify-center lg:w-1/2"
         initial="hidden"
@@ -168,6 +168,6 @@ export const Hero = () => {
           className="h-16 w-16 md:h-24 md:w-24"
         />
       </motion.div>
-    </div>
+    </section>
   );
 };

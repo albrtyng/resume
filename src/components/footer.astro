@@ -1,5 +1,32 @@
-<footer class="my-32">
+---
+import { Icon } from "@components/Icon/Icon";
+
+---
+
+<footer class="py-8 bg-gray-200">
+  <div class="flex lg:hidden justify-center gap-4 pb-4">
+    <a
+      class="text-gray-700 hover:cursor-pointer hover:text-gray-400"
+      alt-text="Visit Albert's GitHub (Opens in new tab)"
+      href="https://www.github.com/albrtyng"
+      target="_blank">
+      <Icon name="github" height={30} width={30} alt-text="" aria-hidden />
+    </a>
+    <a
+      class="text-gray-700 hover:cursor-pointer hover:text-gray-400"
+      alt-text="Visit Albert's LinkedIn (Opens in new tab)"
+      href="https://www.linkedin.com/in/albrtyng/"
+      target="_blank">
+      <Icon
+        name="linkedin"
+        height={30}
+        width={30}
+        alt-text=""
+        aria-hidden
+      />
+    </a>
+  </div>
   <p class="text-center text-sm text-slate-500 font-quicksand">
-    Copyright © {new Date().getFullYear()} Albert Yang. All rights reserved.
+    Designed and built by Albert Yang. Thanks for stopping by!
   </p>
 </footer>

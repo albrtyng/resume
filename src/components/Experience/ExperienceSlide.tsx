@@ -1,7 +1,6 @@
-import { useRef, useState, useEffect, ReactNode } from "react";
+import { Icon } from "@components/Icon/Icon";
+import { useRef, useState, useEffect } from "react";
 import type { Swiper } from "swiper/types";
-
-import externalLink from "@assets/icons/external-link.svg";
 
 type ExperienceSlideProps = {
   index: number;
@@ -41,12 +40,12 @@ export const ExperienceSlide = ({
     const observerOpacity = new IntersectionObserver(
       ([entry]) => {
         (entry.target as HTMLElement).style.opacity = `${Math.min(
-          entry.intersectionRatio * 2.5,
+          entry.intersectionRatio * 2,
           1,
         )}`;
       },
       {
-        threshold: [0.05, 0.1, 0.2, 0.25, 0.3, 0.35, 0.4],
+        threshold: [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1],
       },
     );
 
@@ -83,12 +82,7 @@ export const ExperienceSlide = ({
               href={url}
               target="_blank">
               {text}
-              <img
-                className="h-4 w-4"
-                src={externalLink.src}
-                aria-hidden
-                alt=""
-              />
+              <Icon height={16} width={16} alt-text="" aria-hidden />
             </a>
             <div className="relative mb-8 h-60 w-full max-w-md">
               {project.images.map((image, index) => {

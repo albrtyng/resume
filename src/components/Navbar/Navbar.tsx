@@ -66,7 +66,18 @@ export const Navbar = () => {
   const { isXs } = useBreakpoint();
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    if (location.hash) {
+      // TODO: Fix scroll behaviour, scroll only when loaded
+      const id = location.hash.substring(1);
+      setTimeout(() => {
+        const el = document.getElementById(id);
+        if (el) {
+          el.scrollIntoView();
+        }
+      }, 3000);
+    } else {
+      window.scrollTo(0, 0);
+    }
   }, []);
 
   useEffect(() => {
@@ -138,18 +149,23 @@ export const Navbar = () => {
             className="mt-4 flex flex-col gap-6">
             {/* TODO: replace links */}
             <a
-              href="https://placeholder"
-              className="w-full font-quicksand text-2xl">
+              href="#experience"
+              className="w-full font-quicksand text-2xl"
+              onClick={() => setMenuOpen(false)}>
               Experience
             </a>
             <a
               href="https://placeholder"
-              className="w-full font-quicksand text-2xl">
+              className="w-full font-quicksand text-2xl"
+              onClick={() => setMenuOpen(false)}>
               Résumé
             </a>
-            <button className="w-max rounded-md bg-slate-500 px-4 py-2 font-quicksand text-xl text-white">
+            <a
+              href="#contact"
+              className="w-max rounded-md bg-slate-500 px-4 py-2 font-quicksand text-xl text-white hover:bg-slate-400"
+              onClick={() => setMenuOpen(false)}>
               Get Started
-            </button>
+            </a>
           </motion.nav>
         </motion.div>
       </motion.div>
@@ -163,22 +179,25 @@ export const Navbar = () => {
           <div className="absolute left-0 top-0 h-full w-full bg-gray-100/80 backdrop-blur-md" />
           <div ref={desktopLogoRef} className="z-10 h-10 w-28" />
           <motion.a
-            className="z-10"
+            className="z-10 hover:text-gray-400"
             variants={animateNavChildren}
-            href="https://placeholder">
+            href="#experience"
+            onClick={() => setMenuOpen(false)}>
             Experience
           </motion.a>
           <motion.a
-            className="z-10"
+            className="z-10 hover:text-gray-400"
             variants={animateNavChildren}
             href="https://placeholder">
             Résumé
           </motion.a>
-          <motion.button
+          <motion.a
+            href="#contact"
             variants={animateNavChildren}
-            className="z-10 h-full w-max rounded-md bg-slate-500 px-4 py-2 text-white">
+            className="z-10 inline-flex h-full w-max items-center rounded-md bg-slate-500 px-4 py-2 text-white hover:bg-slate-400"
+            onClick={() => setMenuOpen(false)}>
             Get Started
-          </motion.button>
+          </motion.a>
         </nav>
       </motion.div>
     </>

@@ -4,6 +4,7 @@ import { Hero } from "@components/Hero/Hero";
 import { Navbar } from "@components/Navbar/Navbar";
 import { Experience } from "@components/Experience/Experience";
 import { LogoGrid } from "@components/LogoGrid/LogoGrid";
+import { Contact } from "@components/Contact/Contact";
 import Layout from "@layouts/Layout.astro";
 import contentful from "@assets/logos/contentful.svg";
 import github from "@assets/logos/github.svg";
@@ -21,4 +22,5 @@ import typescript from "@assets/logos/typescript.svg";
   </Container>
   <LogoGrid client:load items={[contentful.src, github.src, graphql.src, jira.src, nextjs.src, react.src, typescript.src]}></LogoGrid>
   <Experience client:load />
+  <Contact />
 </Layout>
