@@ -168,11 +168,14 @@ export const Navbar = () => {
           <motion.a
             className="z-10 hover:text-gray-400"
             variants={animateNavChildren}
-            href="#experience"
+            href="/#experience"
             onClick={() => setMenuOpen(false)}>
             Experience
           </motion.a>
-          <motion.a className="z-10 hover:text-gray-400" variants={animateNavChildren} href="https://placeholder">
+          <motion.a
+            className="z-10 hover:text-gray-400"
+            variants={animateNavChildren}
+            href="/resume">
             Résumé
           </motion.a>
           <motion.a
