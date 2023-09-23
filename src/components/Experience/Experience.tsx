@@ -15,13 +15,10 @@ import { useBreakpoint } from "@lib/hooks/useBreakpoint";
 import { slides } from "@lib/constants";
 
 export const Experience = ({ children }: { children: ReactNode[] }) => {
-  const [swiper, setSwiper] = useState<Swiper>();
   const { isXs } = useBreakpoint();
 
   return (
-    <section
-      id="experience"
-      className="flex w-full scroll-mt-16 flex-wrap justify-center pb-8">
+    <section id="experience" className="flex w-full scroll-mt-16 flex-wrap justify-center pb-8">
       <motion.p className="hidden w-full px-8 pt-10 text-center font-alphapipe font-bold [text-wrap:balance] lg:block lg:text-4xl">
         Trusted by some of Canada's top companies
       </motion.p>
@@ -40,7 +37,6 @@ export const Experience = ({ children }: { children: ReactNode[] }) => {
                 crossFade: true,
               }}
               height={isXs ? 200 : null}
-              onSwiper={setSwiper}
               modules={[Navigation, Pagination, A11y, EffectFade]}
               direction="vertical"
               slidesPerView={1}
@@ -54,12 +50,8 @@ export const Experience = ({ children }: { children: ReactNode[] }) => {
                     <motion.p className="w-full font-quicksand text-xl font-bold lg:text-2xl">
                       {slide.company}
                     </motion.p>
-                    <p className="w-full font-quicksand text-base lg:text-lg">
-                      {slide.title}
-                    </p>
-                    <p className="w-full font-quicksand text-base lg:text-lg">
-                      {slide.duration}
-                    </p>
+                    <p className="w-full font-quicksand text-base lg:text-lg">{slide.title}</p>
+                    <p className="w-full font-quicksand text-base lg:text-lg">{slide.duration}</p>
                     <div className="flex h-[68px] flex-wrap gap-1 overflow-scroll lg:[height:none] lg:[overflow:unset]">
                       {slide.tools.map((tool) => (
                         <Pill key={tool} text={tool} />

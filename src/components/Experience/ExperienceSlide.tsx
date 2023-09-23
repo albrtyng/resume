@@ -47,7 +47,9 @@ export const ExperienceSlide = ({ index, children }: ExperienceSlideProps) => {
 
   useEffect(() => {
     const swiperElement = document.querySelector<SwiperInstance>(".experience-carousel");
-    swiperElement?.swiper?.slideTo(index);
+    if (intersecting) {
+      swiperElement?.swiper?.slideTo(index);
+    }
   }, [intersecting]);
 
   return <div ref={ref}>{children}</div>;
