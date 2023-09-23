@@ -9,11 +9,7 @@ export const Download = ({ className, ...props }: SVGProps<SVGSVGElement>) => (
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 525 471.2"
     {...props}>
-    <g
-      transform="translate(16,0)"
-      stroke-width="30"
-      stroke-linecap="round"
-      stroke-linejoin="round">
+    <g transform="translate(16,0)" strokeWidth="30" strokeLinecap="round" strokeLinejoin="round">
       <path
         d="M457.7,230.15c-7.5,0-13.5,6-13.5,13.5v122.8c0,33.4-27.2,60.5-60.5,60.5H87.5c-33.4,0-60.5-27.2-60.5-60.5v-124.8
   		c0-7.5-6-13.5-13.5-13.5s-13.5,6-13.5,13.5v124.8c0,48.3,39.3,87.5,87.5,87.5h296.2c48.3,0,87.5-39.3,87.5-87.5v-122.8
