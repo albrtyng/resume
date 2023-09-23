@@ -68,7 +68,7 @@ const animateScrollIndicator: Variants = {
 };
 
 type HeroProps = {
-  image: ReactNode[];
+  image: ImageMetadata[];
   subtitle: ReactNode[];
 };
 
@@ -143,10 +143,15 @@ export const Hero: React.FC<HeroProps> = ({ image, subtitle }) => {
         <div className="mt-6 flex flex-col gap-3 sm:flex-row"></div>
       </motion.div>
 
-      <div className="flex w-full justify-center lg:w-1/2 lg:justify-end">
-        {/* TODO: add hero image */}
-        <motion.div aria-hidden initial="hidden" animate="visible" variants={animateHeroImage}>
-          {image}
+      <div className="relative flex h-full w-full justify-center lg:w-1/2 lg:justify-end">
+        <motion.div
+          className="image"
+          aria-hidden
+          initial="hidden"
+          animate="visible"
+          variants={animateHeroImage}>
+          {/* {image} */}
+          <img src={image.src} height={398} width={416} alt-text="" aria-hidden />
         </motion.div>
       </div>
 
