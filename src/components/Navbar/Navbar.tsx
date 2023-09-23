@@ -140,7 +140,6 @@ export const Navbar = () => {
           className="absolute top-0 z-10 -mx-5 mt-16 w-screen overflow-hidden bg-white px-5 font-quicksand lg:hidden"
           aria-hidden={!menuOpen}>
           <motion.nav variants={animateNavChildren} className="mt-4 flex flex-col gap-6">
-            {/* TODO: replace links */}
             <a
               href="#experience"
               className="w-full font-quicksand text-2xl"
