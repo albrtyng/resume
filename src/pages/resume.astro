@@ -1,0 +1,15 @@
+---
+import Container from "@components/container.astro";
+import { Contact } from "@components/Contact/Contact";
+import { Navbar } from "@components/Navbar/Navbar";
+import { ResumeViewer } from "@components/Resume/Resume";
+import Layout from "@layouts/Layout.astro";
+---
+
+<Layout title="Home">
+  <Navbar client:load />
+  <Container>
+    <ResumeViewer client:load />
+  </Container>
+  <Contact />
+</Layout>

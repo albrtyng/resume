@@ -141,10 +141,16 @@ export const Navbar = () => {
           aria-hidden={!menuOpen}>
           <motion.nav variants={animateNavChildren} className="mt-4 flex flex-col gap-6">
             {/* TODO: replace links */}
-            <a href="#experience" className="w-full font-quicksand text-2xl" onClick={() => setMenuOpen(false)}>
+            <a
+              href="#experience"
+              className="w-full font-quicksand text-2xl"
+              onClick={() => setMenuOpen(false)}>
               Experience
             </a>
-            <a href="https://placeholder" className="w-full font-quicksand text-2xl" onClick={() => setMenuOpen(false)}>
+            <a
+              href="/resume"
+              className="w-full font-quicksand text-2xl"
+              onClick={() => setMenuOpen(false)}>
               Résumé
             </a>
             <a
@@ -168,11 +174,14 @@ export const Navbar = () => {
           <motion.a
             className="z-10 hover:text-gray-400"
             variants={animateNavChildren}
-            href="#experience"
+            href="/#experience"
             onClick={() => setMenuOpen(false)}>
             Experience
           </motion.a>
-          <motion.a className="z-10 hover:text-gray-400" variants={animateNavChildren} href="https://placeholder">
+          <motion.a
+            className="z-10 hover:text-gray-400"
+            variants={animateNavChildren}
+            href="/resume">
             Résumé
           </motion.a>
           <motion.a
