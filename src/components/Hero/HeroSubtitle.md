@@ -1,4 +1,4 @@
-<p class="px-4 md:px-0">Albert is a software developer with over half a decade of experience building customer-facing production applications</p>
+<p class="px-4 md:px-0">Albert is a software developer with nearly half a decade of experience building customer-facing production applications</p>
 
 <div class="flex flex-col gap-1 text-left text-lg md:text-xl lg:text-2xl px-8 md:px-0 lg:gap-2">
   <p class="my-0 pl-8 -indent-7 lg:pl-10 lg:-indent-10">🎓 Computer Science @ University of Toronto</p>

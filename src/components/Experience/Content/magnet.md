@@ -5,5 +5,5 @@
   Ported existing build jobs to Jenkins pipelines, facilitating dynamic stages, parallelism and better source control
 </p>
 <p class="w-full text-left font-quicksand text-base lg:text-lg">
-  Maintained and redesigned internal dashboard features to catch and manage automation anomalies
+  <b>Reduced operational burden</b> by creating internal dashboard features to identify anomalies and trends, allowing developers to quickly root-cause build failures and ensuring a safer production workflow
 </p>

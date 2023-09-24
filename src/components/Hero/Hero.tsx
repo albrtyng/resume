@@ -68,7 +68,7 @@ const animateScrollIndicator: Variants = {
 };
 
 type HeroProps = {
-  image: ImageMetadata[];
+  image: string;
   subtitle: ReactNode[];
 };
 
@@ -150,8 +150,7 @@ export const Hero: React.FC<HeroProps> = ({ image, subtitle }) => {
           initial="hidden"
           animate="visible"
           variants={animateHeroImage}>
-          {/* {image} */}
-          <img src={image.src} height={398} width={416} alt-text="" aria-hidden />
+          <img src={image} height={398} width={416} alt-text="" aria-hidden />
         </motion.div>
       </div>
 

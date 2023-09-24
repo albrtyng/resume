@@ -141,7 +141,7 @@ export const Navbar = () => {
           aria-hidden={!menuOpen}>
           <motion.nav variants={animateNavChildren} className="mt-4 flex flex-col gap-6">
             <a
-              href="#experience"
+              href="/#experience"
               className="w-full font-quicksand text-2xl"
               onClick={() => setMenuOpen(false)}>
               Experience
