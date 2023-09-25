@@ -1,8 +1,9 @@
 import { useEffect, useRef, type ReactNode } from "react";
 import { type Variants, motion } from "framer-motion";
 import lottie from "lottie-web";
-import scrollDown from "@assets/lotties/scroll-down.json";
 
+import scrollDown from "@assets/lotties/scroll-down.json";
+import { Image } from "@components/Image/Image";
 import { useBreakpoint } from "@lib/hooks/useBreakpoint";
 
 const animateHeroImage: Variants = {
@@ -150,7 +151,7 @@ export const Hero: React.FC<HeroProps> = ({ image, subtitle }) => {
           initial="hidden"
           animate="visible"
           variants={animateHeroImage}>
-          <img src={image} height={398} width={416} alt-text="" aria-hidden />
+          <Image src={image} height={398} width={416} alt-text="" aria-hidden />
         </motion.div>
       </div>
 
