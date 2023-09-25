@@ -27,7 +27,17 @@ const slides = [
     title: "Software Developer Intern",
     duration: "2018, May 2019 - Aug 2019",
     location: "Ottawa, Waterloo CA",
-    tools: ["C#", "MySQL", "Groovy", "Powershell", "React", "Javascript", "Jenkins", "DevOps"],
+    tools: [
+      "C#",
+      "MySQL",
+      "Groovy",
+      "Powershell",
+      "React",
+      "Redux",
+      "Javascript",
+      "Jenkins",
+      "DevOps",
+    ],
     projects: [],
   },
 ];

@@ -22,7 +22,7 @@ export const ResumeViewer = () => {
           <Icon name="download" alt-text="" aria-hidden height={24} width={24} />
         </a>
       </div>
-      <div className="max-w-screen w-full overflow-auto">
+      <div className="w-full overflow-auto">
         <Document className="box-border w-full sm:p-4 md:p-0 lg:p-4" file="/resume.pdf">
           <Page className="md:shadow-md" scale={isXs ? 1.25 : isMd ? 1 : 1.75} pageIndex={0} />
         </Document>
