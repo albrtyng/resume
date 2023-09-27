@@ -3,7 +3,6 @@ import { type Variants, motion } from "framer-motion";
 import lottie from "lottie-web";
 
 import scrollDown from "@assets/lotties/scroll-down.json";
-import spinner from "@assets/lotties/spinner.json";
 import { Image } from "@components/Image/Image";
 import { useBreakpoint } from "@lib/hooks/useBreakpoint";
 
