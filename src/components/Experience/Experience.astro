@@ -28,7 +28,18 @@ import MagnetSynopsis from "./Content/magnet.md";
         <KiaSynopsis slot="synopsis" />
         <Image
           slot="images"
+<<<<<<< HEAD
           class="w-[85px] h-[167px] md:w-[106px] md:h-52 absolute -bottom-6 md:-bottom-2 lg:bottom-6 right-1 z-[1] xl:bottom-0"
+=======
+          class="absolute -bottom-6 right-1 z-[1] md:hidden"
+          src={kiaMobile}
+          alt=""
+          height={167}
+        />
+        <Image
+          slot="images"
+          class="hidden absolute md:block md:-bottom-2 lg:bottom-6 right-1 z-[1] xl:bottom-0"
+>>>>>>> @{-1}
           src={kiaMobile}
           alt=""
           height={208}
@@ -37,15 +48,39 @@ import MagnetSynopsis from "./Content/magnet.md";
           slot="images"
           src={kiaDesktop}
           alt=""
+<<<<<<< HEAD
           class="absolute aspect-auto lg:h-[203px] xl:h-[221px]"
           height={236}
         />
+=======
+          class="lg:hidden absolute aspect-auto"
+          height={236}
+        />
+        <Image
+          slot="images"
+          src={kiaDesktop}
+          alt=""
+          class="hidden absolute aspect-auto lg:block"
+          height={221}
+        />
+>>>>>>> @{-1}
       </SlideProject>
       <SlideProject slot="projects" link={c.slides[0].projects[1].link}>
         <CFSynopsis slot="synopsis" />
         <Image
           slot="images"
+<<<<<<< HEAD
           class="w-[85px] h-[167px] md:w-[106px] md:h-52 absolute -bottom-6 md:-bottom-2 lg:bottom-6 right-1 z-[1] xl:bottom-0"
+=======
+          class="absolute -bottom-6 right-1 z-[1] md:hidden"
+          src={cfMobile}
+          alt=""
+          height={167}
+        />
+        <Image
+          slot="images"
+          class="hidden absolute md:block md:-bottom-2 lg:bottom-6 right-1 z-[1] xl:bottom-0"
+>>>>>>> @{-1}
           src={cfMobile}
           alt=""
           height={208}
@@ -54,8 +89,20 @@ import MagnetSynopsis from "./Content/magnet.md";
           slot="images"
           src={cfDesktop}
           alt=""
+<<<<<<< HEAD
           class="absolute aspect-auto lg:h-[203px] xl:h-[221px]"
           height={236}
+=======
+          class="lg:hidden absolute aspect-auto"
+          height={240}
+        />
+        <Image
+          slot="images"
+          src={cfDesktop}
+          alt=""
+          class="hidden absolute aspect-auto lg:block"
+          height={221}
+>>>>>>> @{-1}
         />
       </SlideProject>
     </SlideContent>
