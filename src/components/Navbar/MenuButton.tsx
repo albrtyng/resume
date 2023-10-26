@@ -1,5 +1,5 @@
 import { useRef, useEffect } from "react";
-import lottie, { AnimationItem } from "lottie-web";
+import lottie, { type AnimationItem } from "lottie-web";
 
 import hamburger from "@assets/lotties/hamburger.json";
 
@@ -52,11 +52,7 @@ export const MenuButton = ({ open, setOpen }: Props) => {
   }, [open]);
 
   return (
-    <button
-      ref={triggerRef}
-      onClick={() => setOpen(!open)}
-      aria-expanded={open}
-      aria-label="Menu">
+    <button ref={triggerRef} onClick={() => setOpen(!open)} aria-expanded={open} aria-label="Menu">
       <div ref={menuRef} className=" h-10 w-10 md:h-11 md:w-11" />
     </button>
   );

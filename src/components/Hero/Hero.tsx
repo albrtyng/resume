@@ -3,7 +3,6 @@ import { type Variants, motion } from "framer-motion";
 import lottie from "lottie-web";
 
 import scrollDown from "@assets/lotties/scroll-down.json";
-import { Image } from "@components/Image/Image";
 import { useBreakpoint } from "@lib/hooks/useBreakpoint";
 
 const animateHeroImage: Variants = {
@@ -77,7 +76,6 @@ export const Hero: React.FC<HeroProps> = ({ image, subtitle }) => {
   const mobileScrollIndicatorRef = useRef<HTMLDivElement>(null);
   const desktopScrollIndicatorRef = useRef<HTMLDivElement>(null);
   const { isXs } = useBreakpoint();
-  const [isImageLoaded, setIsImageLoaded] = useState(false);
 
   const title = "Build better software with albert.";
 
@@ -114,7 +112,7 @@ export const Hero: React.FC<HeroProps> = ({ image, subtitle }) => {
       <motion.div
         className="flex h-full w-full flex-wrap items-center justify-center lg:w-1/2"
         initial="hidden"
-        animate={isImageLoaded && "visible"}
+        animate="visible"
         variants={animateTextContainer}>
         <motion.h1
           className="max-w-xl px-8 text-center font-alphapipe text-4xl font-semibold md:px-0 lg:text-left lg:text-5xl lg:tracking-tight xl:text-6xl"
@@ -151,24 +149,16 @@ export const Hero: React.FC<HeroProps> = ({ image, subtitle }) => {
           className="image"
           aria-hidden
           initial="hidden"
-          animate={isImageLoaded && "visible"}
+          animate="visible"
           variants={animateHeroImage}>
-          <Image
-            src={image}
-            height={isXs ? 306 : 345}
-            width={isXs ? 320 : 360}
-            alt-text=""
-            aria-hidden
-            visibleByDefault
-            beforeLoad={() => setIsImageLoaded(true)}
-          />
+          {image}
         </motion.div>
       </div>
 
       <motion.div
         className="bottom-0 left-1/2 hidden h-16 w-full -translate-x-1/2 justify-center md:h-24 lg:absolute lg:flex"
         initial="hidden"
-        animate={isImageLoaded && "visible"}
+        animate="visible"
         variants={animateScrollIndicator}>
         <div ref={desktopScrollIndicatorRef} className="h-16 w-16 md:h-24 md:w-24" />
       </motion.div>
