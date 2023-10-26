@@ -864,9 +864,9 @@
     "@types/react" "*"
 
 "@types/react-lazy-load-image-component@^1.6.0":
-  version "1.6.0"
-  resolved "https://registry.npmjs.org/@types/react-lazy-load-image-component/-/react-lazy-load-image-component-1.6.0.tgz"
-  integrity sha512-KIwp3KA2o6vtX1nN80tOCnr9Knx1a+QATUw/+fv2hBnAWuC9TWtWXtgJK8tsiFnK5o1u70veqI+3z6Rt3YhhKA==
+  version "1.6.2"
+  resolved "https://registry.yarnpkg.com/@types/react-lazy-load-image-component/-/react-lazy-load-image-component-1.6.2.tgz#9dac2da91cd71d6c7832fb35d0c5f19c4dad9fe7"
+  integrity sha512-JQnShH2oGxo2U0nQ9m++OzBfSRhZ+28fybS8cAkP6AFHREkC23sau40ixtjIB3XMB0JLixvIC+yNhAE4f2vR2w==
   dependencies:
     "@types/react" "*"
     csstype "^3.0.2"
@@ -3099,7 +3099,7 @@ lodash.castarray@^4.4.0:
 
 lodash.debounce@^4.0.8:
   version "4.0.8"
-  resolved "https://registry.npmjs.org/lodash.debounce/-/lodash.debounce-4.0.8.tgz"
+  resolved "https://registry.yarnpkg.com/lodash.debounce/-/lodash.debounce-4.0.8.tgz#82d79bff30a67c4005ffd5e2515300ad9ca4d7af"
   integrity sha512-FT1yDzDYEoYWhnSGnpE/4Kj1fLZkDFyqRb7fNt6FdYOSxlUWAtp42Eh6Wb0rGIv/m9Bgo7x4GhQbm5Ys4SG5ow==
 
 lodash.isplainobject@^4.0.6:
@@ -3114,7 +3114,7 @@ lodash.merge@^4.6.2:
 
 lodash.throttle@^4.1.1:
   version "4.1.1"
-  resolved "https://registry.npmjs.org/lodash.throttle/-/lodash.throttle-4.1.1.tgz"
+  resolved "https://registry.yarnpkg.com/lodash.throttle/-/lodash.throttle-4.1.1.tgz#c23e91b710242ac70c37f1e1cda9274cc39bf2f4"
   integrity sha512-wIkUCfVKpVsWo3JSZlc+8MB5it+2AN5W8J7YVMST30UrvcQNZ1Okbj+rbVniijTWE6FGYy4XJq/rHkas8qJMLQ==
 
 log-symbols@^5.1.0:
@@ -4289,7 +4289,7 @@ react-is@^16.13.1:
 
 react-lazy-load-image-component@^1.6.0:
   version "1.6.0"
-  resolved "https://registry.npmjs.org/react-lazy-load-image-component/-/react-lazy-load-image-component-1.6.0.tgz"
+  resolved "https://registry.yarnpkg.com/react-lazy-load-image-component/-/react-lazy-load-image-component-1.6.0.tgz#f262c2f163052d71011e282031fd60aafa6494ac"
   integrity sha512-8KFkDTgjh+0+PVbH+cx0AgxLGbdTsxWMnxXzU5HEUztqewk9ufQAu8cstjZhyvtMIPsdMcPZfA0WAa7HtjQbBQ==
   dependencies:
     lodash.debounce "^4.0.8"
