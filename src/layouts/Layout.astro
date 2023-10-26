@@ -12,10 +12,10 @@ export interface Props {
 const resolvedImageWithDomain = new URL("/opengraph.jpg", Astro.url).toString();
 const { title } = Astro.props;
 
-import '../styles/index.scss';
+import "../styles/index.scss";
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -23,7 +23,10 @@ import '../styles/index.scss';
     <!-- TODO: add favicon -->
     <!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
     <meta name="generator" content={Astro.generator} />
-    <link rel="stylesheet" href="https://use.typekit.net/blg3xki.css">
+    <link rel="preconnect" href="https://use.typekit.net" crossorigin />
+    <link rel="preconnect" href="https://p.typekit.net" crossorigin />
+    <link rel="preload" href="https://use.typekit.net/blg3xki.css" as="style" />
+    <link rel="stylesheet" href="https://use.typekit.net/blg3xki.css" />
     <SEO
       title={`${title}${title && " | "}Albert Yang`}
       description="Albert Yang is a Contentful certified software developer"
@@ -41,7 +44,7 @@ import '../styles/index.scss';
   </head>
   <body>
     <Container className="relative">
-      <Social client:load/>
+      <Social client:load />
     </Container>
     <slot />
     <Footer />
