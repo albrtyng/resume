@@ -29,7 +29,14 @@ import HeroSubtitle from "@components/Hero/HeroSubtitle.md";
   <Navbar client:load />
   <Container>
     <Hero client:load>
-      <Image slot="image" src={heroImage} alt="" aria-hidden />
+      <Image
+        class="w-[360px] lg:w-[540px]"
+        slot="image"
+        src={heroImage}
+        alt=""
+        aria-hidden
+        width={540}
+      />
       <HeroSubtitle slot="subtitle" />
     </Hero>
   </Container>
