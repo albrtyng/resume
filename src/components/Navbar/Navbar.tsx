@@ -142,22 +142,19 @@ export const Navbar = () => {
             <a
               href="/#experience"
               className="w-full font-quicksand text-2xl"
-              onClick={() => setMenuOpen(false)}
-              aria-hidden={!menuOpen}>
+              onClick={() => setMenuOpen(false)}>
               Experience
             </a>
             <a
               href="/resume"
               className="w-full font-quicksand text-2xl"
-              onClick={() => setMenuOpen(false)}
-              aria-hidden={!menuOpen}>
+              onClick={() => setMenuOpen(false)}>
               Résumé
             </a>
             <a
               href="#contact"
               className="w-max rounded-md bg-slate-500 px-4 py-2 font-quicksand text-xl text-white hover:bg-slate-400"
-              onClick={() => setMenuOpen(false)}
-              aria-hidden={!menuOpen}>
+              onClick={() => setMenuOpen(false)}>
               Get Started
             </a>
           </motion.nav>
