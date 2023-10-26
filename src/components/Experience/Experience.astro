@@ -20,8 +20,8 @@ import CFSynopsis from "./Content/cf.md";
 import MagnetSynopsis from "./Content/magnet.md";
 ---
 
-<ReactExperience client:visible>
-  <ReactSlide client:visible index={0}>
+<ReactExperience client:load>
+  <ReactSlide client:load index={0}>
     <SlideContent class="mb-16 flex flex-wrap justify-center gap-4 px-8 py-8 md:px-16 lg:pt-0">
       <KonradSynopsis slot="synopsis" />
       <SlideProject slot="projects" link={c.slides[0].projects[0].link}>
@@ -89,7 +89,7 @@ import MagnetSynopsis from "./Content/magnet.md";
     </SlideContent>
   </ReactSlide>
 
-  <ReactSlide client:visible index={1}>
+  <ReactSlide client:load index={1}>
     <SlideContent class="flex flex-wrap justify-center gap-4 px-8 py-8 mb-0 md:px-16">
       <MagnetSynopsis slot="synopsis" />
     </SlideContent>
