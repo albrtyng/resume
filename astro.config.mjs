@@ -8,7 +8,7 @@ import robotsTxt from "astro-robots-txt";
 // https://astro.build/config
 export default defineConfig({
   site: 'https://www.albertyang.io',
-  integrations: [react(), tailwind(), robotsTxt({sitemap: false}), compress()],
+  integrations: [react(), tailwind(), robotsTxt({ sitemap: false }), compress()],
   server: {
     port: 3000,
     host: true

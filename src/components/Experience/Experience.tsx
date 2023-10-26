@@ -1,8 +1,7 @@
-import { useState, type ReactNode } from "react";
+import { type ReactNode } from "react";
 import { motion } from "framer-motion";
 import { Swiper as SwiperContainer, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, A11y, EffectFade } from "swiper/modules";
-import type { Swiper } from "swiper/types";
 
 import "swiper/css";
 import "swiper/css/navigation";
