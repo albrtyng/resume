@@ -8,7 +8,6 @@ export interface Props {
   title: string;
 }
 
-// TODO: add screenshot of completed site
 const resolvedImageWithDomain = new URL("/opengraph.jpg", Astro.url).toString();
 const { title } = Astro.props;
 
@@ -20,15 +19,14 @@ import "../styles/index.scss";
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <!-- TODO: add favicon -->
-    <!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <link rel="preconnect" href="https://use.typekit.net" crossorigin />
     <link rel="preconnect" href="https://p.typekit.net" crossorigin />
     <link rel="preload" href="https://use.typekit.net/blg3xki.css" as="style" />
     <link rel="stylesheet" href="https://use.typekit.net/blg3xki.css" />
     <SEO
-      title={`${title}${title && " | "}Albert Yang`}
+      title={`Albert Yang${title ? " | " + title : ""}`}
       description="Albert Yang is a Contentful certified software developer"
       openGraph={{
         basic: {
